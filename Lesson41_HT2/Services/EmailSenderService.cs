@@ -30,7 +30,6 @@ namespace Lesson41_HT2.Services
                 smtp.SendMailAsync(mail).Wait();
                 return;
             }
-
         }
     }
 }
