@@ -43,9 +43,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson43_Mutex_HT1", "Lesso
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson44", "Lesson44", "{9FD8C37F-9F29-4F5F-B5AC-D146D88472F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson44_Censellation_HT1", "Lesson44_Censellation_HT1\Lesson44_Censellation_HT1.csproj", "{544CB140-5049-4067-987C-1BCDC6847814}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson44_Censellation_HT1", "Lesson44_Censellation_HT1\Lesson44_Censellation_HT1.csproj", "{544CB140-5049-4067-987C-1BCDC6847814}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson44_Mixed", "Lesson44_Mixed\Lesson44_Mixed.csproj", "{AB6719A7-2A38-4654-95CF-F92D70A3978C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson44_Mixed", "Lesson44_Mixed\Lesson44_Mixed.csproj", "{AB6719A7-2A38-4654-95CF-F92D70A3978C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lesson45", "Lesson45", "{F7A120EB-7FE5-4232-906F-8340C52845E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson45HT1_LinqQuerySyntax", "Lesson45HT1_LinqQuerySyntax\Lesson45HT1_LinqQuerySyntax.csproj", "{53A95705-F880-48A3-8219-16EC2B65E188}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +109,10 @@ Global
 		{AB6719A7-2A38-4654-95CF-F92D70A3978C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB6719A7-2A38-4654-95CF-F92D70A3978C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB6719A7-2A38-4654-95CF-F92D70A3978C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{53A95705-F880-48A3-8219-16EC2B65E188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53A95705-F880-48A3-8219-16EC2B65E188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53A95705-F880-48A3-8219-16EC2B65E188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53A95705-F880-48A3-8219-16EC2B65E188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -125,6 +133,7 @@ Global
 		{167E465B-A2A2-4219-83F5-587C4A20D3B3} = {55E93FD6-36A8-4690-8C98-918F4FB6B1C6}
 		{544CB140-5049-4067-987C-1BCDC6847814} = {9FD8C37F-9F29-4F5F-B5AC-D146D88472F5}
 		{AB6719A7-2A38-4654-95CF-F92D70A3978C} = {9FD8C37F-9F29-4F5F-B5AC-D146D88472F5}
+		{53A95705-F880-48A3-8219-16EC2B65E188} = {F7A120EB-7FE5-4232-906F-8340C52845E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {DEDDEF45-A049-4132-8238-2D2323FFE2BE}
