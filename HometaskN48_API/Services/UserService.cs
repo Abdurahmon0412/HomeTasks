@@ -27,6 +27,7 @@ namespace HometaskN48_API.Services
         public ValueTask<User?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var user = _dataContext.Users.FirstOrDefault(user => user.Id == id);
+
             return new ValueTask<User?>(user);
         }
 
