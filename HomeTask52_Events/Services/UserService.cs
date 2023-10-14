@@ -1,10 +1,11 @@
 ﻿using HomeTask52_Events.Events;
 using HomeTask52_Events.Models;
+using HomeTask52_Events.Services.Interfaces;
 using N52_HT1.DataAccess;
 using System.Linq.Expressions;
 using System.Text.RegularExpressions;
 
-namespace HomeTask52_Events.Services.Interfaces;
+namespace HomeTask52_Events.Services;
 
 public class UserService : IUserService
 {
