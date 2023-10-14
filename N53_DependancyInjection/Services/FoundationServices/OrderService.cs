@@ -32,13 +32,18 @@ namespace N53_DependancyInjection.Services.FoundationServices
         public ValueTask<ICollection<Order>> GetAsync(IEnumerable<Guid> ids, CancellationToken cancellationToken = default)
         {
             var orders = _dataContext.Orders.Where(order => ids.Contains(order.Id));
+            if(!orders.Any())
+                throw new ArgumentNullException(nameof(orders));
+
             return new ValueTask<ICollection<Order>>(orders.ToList());
         }
 
-        public ValueTask<Order?> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
+        public ValueTask<Order> GetByIdAsync(Guid id, CancellationToken cancellationToken = default)
         {
             var order = _dataContext.Orders.FirstOrDefault(order => order.Id == id);
-            return new ValueTask<Order?>(order);
+            if(order == null)
+                throw new ArgumentNullException(nameof(order));
+            return new ValueTask<Order>(order);
         }
 
         public async ValueTask<Order> UpdateAsync(Order order, bool saveChanges = true, CancellationToken cancellationToken = default)
