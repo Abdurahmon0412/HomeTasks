@@ -17,9 +17,11 @@ public class CleanUpService : ICleanUpService
     {
         var absolutePaht = Path.Combine(Directory.GetCurrentDirectory(), "Users", user.Id.ToString());
 
-        await CleanProfileFolderAsync(Path.Combine(absolutePaht, "Avatar"));
+        await CleanProfileFolderAsync(Path.Combine(absolutePaht, "Profile"));
 
-        return await CleanResumeFolderAsync(Path.Combine(absolutePaht, "Resume"));
+        await CleanResumeFolderAsync(Path.Combine(absolutePaht, "Resume"));
+
+        return new List<string>();
     }
 
     private ValueTask<List<string>> CleanResumeFolderAsync(string path)
