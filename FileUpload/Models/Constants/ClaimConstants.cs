@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNetCore.SignalR;
-
-namespace FileUpload.Models.Constants;
+﻿namespace FileUpload.Models.Constants;
 
 public static  class ClaimConstants
 {
