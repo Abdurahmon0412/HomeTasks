@@ -3,7 +3,6 @@ using Identity.Application.Common.Notifications.Services;
 using Identity.Application.Foundations;
 using Identity.Domain.Entities;
 using Identity.Domain.Enums;
-using Identity.Persistance.DataContext;
 
 namespace Identity.Infrastructure.Common.Identity.Services;
 

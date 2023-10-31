@@ -3,7 +3,7 @@ using Identity.Domain.Enums;
 
 namespace Identity.Domain.Entities;
 
-public class VerificationCode : IFileSetEntity<Guid> 
+public class VerificationCode
 {
     public Guid Id { get; set; }
 

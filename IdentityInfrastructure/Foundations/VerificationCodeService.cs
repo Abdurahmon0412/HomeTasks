@@ -1,15 +1,15 @@
 ﻿using Identity.Application.Foundations;
 using Identity.Domain.Entities;
-using Identity.Persistance.DataContext;
+using Identity.Persistance.DataContexts;
 using System.Linq.Expressions;
 
 namespace Identity.Infrastructure.Foundations;
 
 public class VerificationCodeService : IEntityBaseService<VerificationCode>
 {
-    private readonly IDataContext _dataContext;
+    private readonly AppDbContext _dataContext;
 
-    public VerificationCodeService(IDataContext dataContext) => _dataContext = dataContext;
+    public VerificationCodeService(AppDbContext dataContext) => _dataContext = dataContext;
 
     public async ValueTask<VerificationCode> GetByIdAsync(Guid id)
             => await _dataContext.VerificationCodes.FindAsync(id) ??

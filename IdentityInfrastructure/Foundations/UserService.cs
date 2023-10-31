@@ -1,15 +1,15 @@
 ﻿using Identity.Application.Foundations;
 using Identity.Domain.Entities;
-using Identity.Persistance.DataContext;
+using Identity.Persistance.DataContexts;
 using System.Linq.Expressions;
 
 namespace Identity.Infrastructure.Foundations;
 
 public class UserService : IEntityBaseService<User>
 {
-    private readonly IDataContext _dataContext;
+    private readonly AppDbContext _dataContext;
 
-    public UserService(IDataContext dataContext) => _dataContext = dataContext;
+    public UserService(AppDbContext dataContext) => _dataContext = dataContext;
 
     public async ValueTask<User> GetByIdAsync(Guid id)
             => await _dataContext.Users.FindAsync(id) ??

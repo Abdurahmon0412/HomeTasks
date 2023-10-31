@@ -1,6 +1,6 @@
 ﻿namespace Identity.Application.Common.Settings;
 
-public class EmailSenderSettings
+public class EmailSenderSettings 
 {
     public string Host { get; set; } = default!;
 

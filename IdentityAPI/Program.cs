@@ -1,6 +1,13 @@
+
+using Identity.API.Configurations;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+
 var builder = WebApplication.CreateBuilder(args);
+
+await builder.ConfugureAsync();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+await app.ConfigureAsync();
 
-app.Run();
+await app.RunAsync();

@@ -2,6 +2,7 @@
 using Identity.Application.Common.Settings;
 using Identity.Domain.Entities;
 using Identity.Domain.Enums;
+using Microsoft.Extensions.Options;
 
 namespace Identity.Infrastructure.Common.Identity.Services;
 
@@ -11,9 +12,11 @@ public class IdentityVerificationService : IIdentityVerificationService
     private readonly VerificationTokenSettings _verificationTokenSettings;
 
     public IdentityVerificationService(IEnumerable<IVerificationCodeGeneratorService> verificationCodeGeneratorServices,
-        VerificationTokenSettings verificationTokenSettings) 
-        =>( _verificationCodeGeneratorService, _verificationTokenSettings) = 
-        (verificationCodeGeneratorServices, verificationTokenSettings);
+        IOptions<VerificationTokenSettings> verificationTokenSettings)
+    {
+        _verificationCodeGeneratorService = verificationCodeGeneratorServices;
+        _verificationTokenSettings = verificationTokenSettings.Value;
+    }
     
     public async ValueTask<string> GenerateVerificationCode(VerificationType verificationType, Guid userId)
     {
