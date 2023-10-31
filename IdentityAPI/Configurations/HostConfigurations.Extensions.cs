@@ -8,6 +8,7 @@ using Identity.Infrastructure.Common.Notifications.Services;
 using Identity.Infrastructure.Foundations;
 using Identity.Persistance.DataContexts;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -58,8 +59,7 @@ public static partial class HostConfigurations
 
    public static WebApplicationBuilder AddNotificationInfrastructure(this WebApplicationBuilder builder)
     {
-        builder.Services.Configure<EmailSenderSettings>(builder.Configuration.GetSection(nameof (EmailSenderSettings)));
-
+       
         builder.Services.AddScoped<IEmailSenderService, EmailSenderService>();
 
         return builder;
@@ -67,20 +67,12 @@ public static partial class HostConfigurations
 
     public static WebApplicationBuilder AddPersistance(this WebApplicationBuilder builder)
     {
-        builder.Services.AddDbContext<AppDbContext>();
+        var connectionSettings = new ConnectionSettings();
+        builder.Configuration.GetSection(nameof(ConnectionSettings)).Bind(connectionSettings);
 
-        //builder.Services.AddScoped<IDataContext, AppFileContext>(provider =>
-        //{
-        //    var contextOptions = new FileContextOptions<AppFileContext>
-        //    {
-        //        StorageRootPath = Path.Combine(builder.Environment.ContentRootPath, "Data", "DataStorage")
-        //    };
 
-        //    var context = new AppFileContext(contextOptions);
-        //    context.FetchAsync().AsTask().Wait();
-
-        //    return context;
-        //});
+        builder.Services.AddDbContext<AppDbContext>(options => options
+        .UseNpgsql(connectionSettings.DbConnectionString));
 
         return builder;
     }

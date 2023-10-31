@@ -40,7 +40,7 @@ public class UserService : IEntityBaseService<User>
         foundUser.FirstName = user.FirstName;
         foundUser.LastName = user.LastName;
 
-        await _dataContext.Users.UpdateAsync(foundUser);
+         _dataContext.Users.Update(foundUser);
 
         await _dataContext.SaveChangesAsync();
 

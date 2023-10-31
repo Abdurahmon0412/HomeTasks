@@ -9,10 +9,9 @@ public class AppDbContext : DbContext
 
     public DbSet<VerificationCode> VerificationCodes => Set<VerificationCode>();
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
     {
-        base.OnConfiguring(optionsBuilder);
-        optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=IdentityDatabase;Username=postgres;Password=postgres");
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
