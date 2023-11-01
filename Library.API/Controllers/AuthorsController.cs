@@ -24,7 +24,7 @@ public class AuthorsController : ControllerBase
     public async ValueTask<IActionResult> GetAuthorsById(Guid authorsId)
         => Ok(await _authorService.GetByIdAsync(authorsId));
 
-    [HttpPut("amenities/update")]
+    [HttpPut("authors/update")]
     public async ValueTask<IActionResult> UpdateAuthors([FromBody] Author author)
         => Ok(await _authorService.UpdateAsync(author));
 

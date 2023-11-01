@@ -1,6 +1,11 @@
+using Library.API.Configurations;
+
 var builder = WebApplication.CreateBuilder(args);
+
+await builder.ConfugureAsync();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+await app.ConfugureAsync();
 
-app.Run();
+await app.RunAsync();
