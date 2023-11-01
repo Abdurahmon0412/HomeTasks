@@ -18,5 +18,6 @@ public class AppDbContext : DbContext
     {
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<VerificationCode>().HasOne<User>();
+
     }
 }
