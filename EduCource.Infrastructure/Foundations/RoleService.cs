@@ -9,7 +9,7 @@ public class RoleService : IEntityBaseService<Role>
 {
     private readonly AppDbContext _appDbContext;
 
-    public RoleService() => _appDbContext = new AppDbContext();
+    public RoleService(AppDbContext appDbContext) => _appDbContext = appDbContext;
     
     public async ValueTask<Role> CreateAsync(Role role)
     {

@@ -9,7 +9,7 @@ public class UserService : IEntityBaseService<User>
 {
     private readonly AppDbContext _appDbContext;
 
-    public UserService() => _appDbContext = new AppDbContext();
+    public UserService(AppDbContext appDbContext) => _appDbContext = appDbContext;
     
     public async ValueTask<User> CreateAsync(User user)
     {
@@ -40,6 +40,19 @@ public class UserService : IEntityBaseService<User>
         return foundUser;
     }
 
+    public async ValueTask<User> DeleteByIdAsync(Guid userId)
+    {
+        var foundUser = _appDbContext.Users.Find(userId);
+
+        if (foundUser is null)
+            throw new InvalidOperationException($"User with id {userId} not found.");
+
+        _appDbContext.Users.Remove(foundUser);
+
+        await _appDbContext.SaveChangesAsync();
+
+        return foundUser;
+    }
     public async ValueTask<User> DeleteAsync(User user)
     {
         _appDbContext.Remove(user);

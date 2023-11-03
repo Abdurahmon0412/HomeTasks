@@ -9,7 +9,7 @@ public class CourseStudentService : IEntityBaseService<CourseStudent>
 {
     private readonly AppDbContext _appDbContext;
 
-    public CourseStudentService() => _appDbContext = new AppDbContext();
+    public CourseStudentService(AppDbContext appDbContext) => _appDbContext = appDbContext;
 
     public async ValueTask<CourseStudent> CreateAsync(CourseStudent courseStudent)
     {

@@ -9,7 +9,7 @@ public class UserSettingsService : IEntityBaseService<UserSettings>
 {
     private readonly AppDbContext _appDbContext;
 
-    public UserSettingsService() => _appDbContext = new AppDbContext();
+    public UserSettingsService(AppDbContext appDbContext) => _appDbContext = appDbContext;
     
     public async ValueTask<UserSettings> CreateAsync(UserSettings userSettings)
     {
