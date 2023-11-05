@@ -23,7 +23,6 @@ public class CourseService : IEntityBaseService<Course>
     public IQueryable<Course> Get(Expression<Func<Course, bool>> predicate)
             => _appDbContext.Courses.Where(predicate.Compile()).AsQueryable();
 
-
     public async ValueTask<Course> GetByIdAsync(Guid id)
         => await _appDbContext.Courses.FindAsync(id) ??
             throw new ArgumentOutOfRangeException(nameof(id), "Course not found!");

@@ -5,6 +5,7 @@ namespace EduCource.Domain.Entities;
 public class CourseStudent
 {
     public Guid Id { get; set; }
+
     public Guid CourcseId { get; set; }
 
     public Guid StudentId { get; set; }
