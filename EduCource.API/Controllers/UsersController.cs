@@ -50,9 +50,11 @@ public class UsersController : ControllerBase
     }
 
     [HttpDelete("{userId:guid}")]
-    public async ValueTask<IActionResult> Delete([FromBody] User user)
+    public async ValueTask<IActionResult> Delete([FromRoute] Guid userId)
     {
-        await _userService.DeleteAsync(user);
+        var deletedUser = await _userService.GetByIdAsync(userId);
+
+        await _userService.DeleteAsync(deletedUser);
 
         return Ok();
     }
