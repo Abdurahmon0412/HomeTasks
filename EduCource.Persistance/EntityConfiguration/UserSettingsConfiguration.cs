@@ -1,7 +1,15 @@
-﻿namespace EduCource.Persistance.EntityConfiguration;
+﻿using EduCource.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-public class UserSettingsConfiguration
+namespace EduCource.Persistance.EntityConfiguration;
+
+public class UserSettingsConfiguration : IEntityTypeConfiguration<UserSettings>
 {
+    public void Configure(EntityTypeBuilder<UserSettings> builder)
+    {
+        builder.HasKey(userSettings => userSettings.UserId);
 
-
+        builder.HasOne<User>().WithOne();
+    }
 }

@@ -21,7 +21,8 @@ public static partial class HostConfuguration
                         .AddScoped<IEntityBaseService<Role>, RoleService>()
                         .AddScoped<IEntityBaseService<Course>, CourseService>()
                         .AddScoped<IEntityBaseService<CourseStudent>, CourseStudentService>()
-                        .AddScoped<IEntityBaseService<UserSettings>, UserSettingsService>();
+                        .AddScoped<IEntityBaseService<UserSettings>, UserSettingsService>()
+                        .AddScoped<IEntityBaseService<Location>, LocationService>();
 
         return builder;
     }

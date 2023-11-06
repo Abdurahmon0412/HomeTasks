@@ -1,12 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EduCource.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EduCource.Persistance.EntityConfiguration
+namespace EduCource.Persistance.EntityConfiguration;
+
+public class UserConfiguration : IEntityTypeConfiguration<User>
 {
-    internal class UserConfiguration
+    public void Configure(EntityTypeBuilder<User> builder)
     {
+        builder.Property(user => user.FirstName).IsRequired().HasMaxLength(256);
+        builder.Property(user => user.LastName).IsRequired().HasMaxLength(256);
     }
 }

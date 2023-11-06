@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using EduCource.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace EduCource.Persistance.EntityConfiguration
+namespace EduCource.Persistance.EntityConfiguration;
+
+public class CourseConfiguration : IEntityTypeConfiguration<Course>
 {
-    internal class CourseConfiguration
+    public void Configure(EntityTypeBuilder<Course> builder)
     {
+        builder.HasOne(course => course.Teacher)
+            .WithMany(user => user.TeacherCourses)
+                .HasForeignKey(course => course.TeacherId);
     }
 }
